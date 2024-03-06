@@ -8,3 +8,6 @@ En la carpeta flaskr ejecutar: "pip install -r requirements.txt" para la instala
 ## Arrancar servidor
 flask run
 
+## Postman
+
+En la carpeta Back se encuentra la coleccion postman la cual se puede importar al ambiente para probar los distintos endpoints de la aplicación
