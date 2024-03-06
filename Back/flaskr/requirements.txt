@@ -26,8 +26,3 @@ marshmallow_sqlalchemy
 flask_restful
 flask_jwt_extended
 flask_cors
-pylzma
-rarfile
-celery
-redis
-py7zr
