@@ -3,10 +3,10 @@
 # Ejecucion Back
 
 ## Instalacion de dependencias
-En la carpeta flaskr ejecutar: "pip install -r requirements.txt" para la instalacion de los modulos necesarios
+En la carpeta "Back/flaskr" ejecutar: "pip install -r requirements.txt" para la instalacion de los modulos necesarios
 
 ## Arrancar servidor
-En "Back/flasr" ejecutar "flask run"
+En "Back/flaskr" ejecutar "flask run"
 
 ## Postman
 
