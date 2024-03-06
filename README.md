@@ -11,3 +11,7 @@ flask run
 ## Postman
 
 En la carpeta Back se encuentra la coleccion postman la cual se puede importar al ambiente para probar los distintos endpoints de la aplicación
+
+
+# Ejecucion Front
+flask run
