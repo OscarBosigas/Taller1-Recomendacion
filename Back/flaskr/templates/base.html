@@ -1,0 +1,65 @@
+<!-- HTML Code -->
+<!DOCTYPE html>
+<html lang="en">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">MusicApp</h5>
+            <form id="loginForm" method="post" action="http://localhost:5000/api/auth/login">
+              <div class="form-label-group">
+                <input name="id" type="text" id="id" class="form-control" placeholder="Usuario" required autofocus>
+                <label for="inputEmail"></label>
+              </div>
+  
+              <div class="form-label-group">
+                <input name="password" type="password" id="password" class="form-control" placeholder="Contraseña" required>
+                <label for="inputPassword"></label>
+              </div>
+              
+              <div class="row">
+                <button  class="col btn btn-lg btn-primary btn-block text-uppercase" type="submit">Entrar</button>
+                <hr class="my-4">
+                <div class="col">
+
+                </div>
+                <button  class="col btn btn-lg btn-success btn-block text-uppercase" type="submit">Registro</button>
+                <hr class="my-4">
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitar que el formulario se envíe de forma tradicional
+        
+        // Obtener los datos del formulario
+        var id = document.getElementById('id').value;
+        var password = document.getElementById('password').value;
+        
+        // Crear una solicitud XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:5000/api/auth/login', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Procesar la respuesta JSON
+                var response = JSON.parse(xhr.responseText);
+                // Manejar la respuesta
+                console.log(response.mensaje);
+                console.log(response.token);
+                // Realizar otras acciones en función de la respuesta
+            }
+        };
+        // Enviar los datos del formulario como JSON al backend
+        xhr.send(JSON.stringify({id: id, password: password}));
+    });
+</script>
+</body>
+</html>
