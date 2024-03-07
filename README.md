@@ -14,4 +14,4 @@ En la carpeta Back se encuentra la coleccion postman la cual se puede importar a
 
 
 # Ejecucion Front
-En "Front" ejecutar "flask run"
+En "Front" ejecutar "python app.py"
