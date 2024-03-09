@@ -1,12 +1,15 @@
 # Taller1-Recomendacion
 
-# Ejecucion
+# Ejecucion Back
 
 ## Instalacion de dependencias
-En la carpeta "Proyecto/flaskr" ejecutar: "pip install -r requirements.txt" para la instalacion de los modulos necesarios
+En la carpeta "Back/flaskr" ejecutar: "pip install -r requirements.txt" para la instalacion de los modulos necesarios
 
 ## Arrancar servidor
-En "Proyecto/flaskr" ejecutar "flask run"
+En "Back/flaskr" ejecutar "flask run"
+
+# Ejecucion Front
+En Front ejecutar "ng serve"
 
 ## Postman
 
