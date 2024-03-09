@@ -1,6 +1,6 @@
 # Taller1-Recomendacion
 
-# Ejecucion Back
+# Ejecucion
 
 ## Instalacion de dependencias
 En la carpeta "Proyecto/flaskr" ejecutar: "pip install -r requirements.txt" para la instalacion de los modulos necesarios

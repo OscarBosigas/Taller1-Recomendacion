@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-control {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: #fff;
+      border-color: #007bff;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Registro</h1>
+    <form action="#">
+      <div class="form-group">
+        <label for="id">Nombre</label>
+        <input [(ngModel)]="id" type="text" id="id" name="id" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="genero">Género</label>
+        <select [(ngModel)]="gender" id="gender" name="gender" class="form-control">
+          <option value="m">Hombre</option>
+          <option value="f">Mujer</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="age">Edad</label>
+        <input [(ngModel)]="age" type="text" id="age" name="age" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="pais">País</label>    
+        <input [(ngModel)]="country" type="text" id="country" name="country" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="contraseña">Contraseña</label>
+        <input [(ngModel)]="password" type="password" id="password" name="password" class="form-control">
+      </div>
+      <button (click)="onSingIn()" type="submit" class="btn btn-primary">Registrarse</button>
+    </form>
+  </div>
+</body>
+</html>

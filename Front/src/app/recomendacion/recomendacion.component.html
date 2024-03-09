@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imagen</title>
+</head>
+<body>
+  <div style="text-align: center;">
+    <h1>Bienvenido {{id}}</h1>
+    <p>Te puede gustar:</p>
+  </div>
+  <table class="table">
+    <thead>
+        <tr>
+            <th class="h4">Artista</th>
+            <th class="h4">Puntuacion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of artistas; let i = index">
+        <td>
+            <dd>{{e.artist}}</dd>
+        </td>
+        <td>
+            <dd>{{e.estimation}}</dd>
+        </td>
+        </tr>
+    </tbody>
+
+</table>
+</body>
+</html>
