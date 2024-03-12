@@ -44,6 +44,7 @@ class Usuario(Resource):
         
 class Predict(Resource):
     def post(self):
-        df = pd.read_csv('modelos/top_5_user_pearson.csv')
-        result = df.loc[df['uid'] == request.json['id']]
+        df = pd.read_csv('modelos/predictions.csv')
+        result = df.loc[df['userid'] == request.json['id']]
+        print(json.loads(result.to_json(orient='records')))
         return json.loads(result.to_json(orient='records'))
