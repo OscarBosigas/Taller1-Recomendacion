@@ -1,33 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Imagen</title>
+  <title>Recomendacion</title>
+  
 </head>
+
 <body>
   <div style="text-align: center;">
     <h1>Bienvenido {{id}}</h1>
-    <p>Te puede gustar:</p>
   </div>
   <table class="table">
     <thead>
-        <tr>
-            <th class="h4">Artista</th>
-            <th class="h4">Puntuacion</th>
-        </tr>
+      <tr>
+        <th class="h4">Porque escuchaste:</th>
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let e of artistas; let i = index">
-        <td>
-            <dd>{{e.artist}}</dd>
-        </td>
-        <td>
-            <dd>{{e.estimation}}</dd>
-        </td>
-        </tr>
+      <div class="row" *ngFor="let e of artistas; let i = index">
+        <ul>
+          <li *ngFor="let x of e.common_artists.substring(1, e.common_artists.length - 1).split(','); let j = index">
+            <h6> {{ x }}</h6>
+          </li>
+        </ul>
+
+      </div>
+    </tbody>
+    <tbody>
+
+      <th class="h4">Te podria interesar:</th>
+      <div class="row" *ngFor="let e of nombres; let i = index">
+        <h6>{{e}}</h6>
+        <ul>
+          <li *ngFor="let dato of datos[e]">
+            {{ dato }}
+          </li>
+        </ul>
+      </div>
     </tbody>
 
-</table>
+  </table>
 </body>
+
 </html>

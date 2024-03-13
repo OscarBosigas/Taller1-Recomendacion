@@ -1,5 +1,5 @@
 export class Artista{
-    constructor(public artist:string, public estimation:string){
+    constructor(public recommended_artists:string, public common_artists:string, public top_songs_by_artist:string){
 
     }
 }
