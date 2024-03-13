@@ -46,4 +46,7 @@ class Predict(Resource):
     def post(self):
         df = pd.read_csv('modelos/predictions.csv')
         result = df.loc[df['userid'] == request.json['id']]
+        if(len(result) == 0):
+            usuario = Usuarios.query.filter_by(age=request.json['age']).first()
+            print(usuario)
         return json.loads(result.to_json(orient='records'))
