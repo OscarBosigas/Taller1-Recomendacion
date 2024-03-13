@@ -20,7 +20,8 @@ class SignIn(Resource):
                                   age = request.json["age"],
                                   country = request.json["country"],
                                   registered = fecha_formateada,
-                                  password=request.json["password"])
+                                  password=request.json["password"],
+                                  rate = 0)
             db.session.add(nuevo_usuario)
             db.session.commit()
             return {'menaje':'Usuario creado'}
