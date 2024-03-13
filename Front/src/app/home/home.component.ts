@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   onLogin() {
-    this.login.logIn(new Usuario(this.id, this.password, '', '','',''))
+    this.login.logIn(new Usuario(this.id, this.password, '', '','','',0))
     .subscribe(res =>{
       this.route.navigate(['recomendacion'])
     }, error => {

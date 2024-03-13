@@ -5,7 +5,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recomendacion</title>
-  
+  <style>
+    .rating {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      text-align: center;
+    }
+
+    .rating > label {
+      display: inline-block;
+      padding: 5px;
+    }
+
+    .rating > input {
+      display: none;
+    }
+
+    .rating > label::before {
+      content: "\2605";
+      font-size: 36px;
+      color: grey;
+      cursor: pointer;
+    }
+
+    .rating > input:checked ~ label {
+      color: orange;
+    }
+
+    .rating > input:checked ~ label:before {
+      color: orange;
+    }
+  </style>
 </head>
 
 <body>
@@ -43,16 +73,18 @@
 
   </table>
 
-  <h1>Calificación</h1>
+  <h1  style="text-align: center;">Calificación</h1>
   <form action="/submit" method="post">
     <div class="rating">
-      <input type="radio" id="star5" name="rating" value="5"><label for="star5"></label>
-      <input type="radio" id="star4" name="rating" value="4"><label for="star4"></label>
-      <input type="radio" id="star3" name="rating" value="3"><label for="star3"></label>
-      <input type="radio" id="star2" name="rating" value="2"><label for="star2"></label>
-      <input type="radio" id="star1" name="rating" value="1"><label for="star1"></label>
+      <input [(ngModel)]="rate" type="radio" id="star5" name="rating" value="1"><label for="star5"></label>
+      <input [(ngModel)]="rate" type="radio" id="star4" name="rating" value="2"><label for="star4"></label>
+      <input [(ngModel)]="rate" type="radio" id="star3" name="rating" value="3"><label for="star3"></label>
+      <input [(ngModel)]="rate" type="radio" id="star2" name="rating" value="4"><label for="star2"></label>
+      <input [(ngModel)]="rate" type="radio" id="star1" name="rating" value="5"><label for="star1"></label>
     </div>
-    <button onclick="rating()" type="submit">Enviar</button>
+    <div  style="text-align: center;">
+      <button  (click)="rating()" type="submit">Enviar</button>
+    </div>
   </form>
 </body>
 

@@ -26,7 +26,7 @@ export class RegistroComponent implements OnInit {
 
   onSingIn() {
     if(this.id != "" && this.password != "" && this.age != "" && this.gender != "" && this.country != ""){ 
-    this.singup.singIn(new Usuario(this.id, this.password, this.age, this.gender, this.country, this.registered))
+    this.singup.singIn(new Usuario(this.id, this.password, this.age, this.gender, this.country, this.registered, 0))
     .subscribe(res =>{
       this.route.navigate([''])
     }, error => {

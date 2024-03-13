@@ -46,4 +46,10 @@ export class LogInService {
         return throwError('Something went wrong');
     }
 
+    public postCalificar(usuario: Usuario){
+      return this.http.post('http://localhost:5000/calificar', usuario)
+        .pipe(
+            catchError(this.handleErrorLogin)
+          );
+    }
 }

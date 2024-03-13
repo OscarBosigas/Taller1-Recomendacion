@@ -14,7 +14,7 @@ export class ArtistaService {
 
     constructor (private http: HttpClient) {}
 
-    public getEventos(usuario:Usuario):Observable<Artista[]>
+    public getRecomendaciones(usuario:Usuario):Observable<Artista[]>
     {
         return this.http.post<Artista[]>('http://127.0.0.1:5000/predict', usuario)
     }

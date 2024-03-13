@@ -55,6 +55,6 @@ class Calificar(Resource):
     def post(self):
         usuario = Usuarios.query.get_or_404(request.json["id"])
         data = request.get_json()
-        usuario.rate = data['calificacion']
+        usuario.rate = data['rate']
         db.session.commit()
         return {'mensaje':'Calificado'}
