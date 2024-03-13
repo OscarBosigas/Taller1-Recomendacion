@@ -30,4 +30,7 @@ Object: any;
     })
   }
 
+  rating(): void{
+    
+  }
 }

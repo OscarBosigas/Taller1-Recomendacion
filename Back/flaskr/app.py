@@ -22,5 +22,6 @@ api.add_resource(SignIn, '/api/auth/singup')
 api.add_resource(LogIn, '/api/auth/login')
 api.add_resource(Usuario, '/usuario')
 api.add_resource(Predict, '/predict')
+api.add_resource(Calificar, '/calificar')
 
 jwt = JWTManager(app)

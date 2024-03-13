@@ -15,6 +15,7 @@ class Usuarios(db.Model):
     country = db.Column(db.String(64))
     registered =db.Column(db.String(64))
     password = db.Column(db.String(32))
+    rate = db.Column(db.Integer)
 
 
 class UsuariosSchema(SQLAlchemyAutoSchema):

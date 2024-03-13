@@ -50,3 +50,11 @@ class Predict(Resource):
             usuario = Usuarios.query.filter_by(age=request.json['age']).first()
             print(usuario)
         return json.loads(result.to_json(orient='records'))
+    
+class Calificar(Resource):
+    def post(self):
+        usuario = Usuarios.query.get_or_404(request.json["id"])
+        data = request.get_json()
+        usuario.rate = data['calificacion']
+        db.session.commit()
+        return {'mensaje':'Calificado'}
