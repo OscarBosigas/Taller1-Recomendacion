@@ -41,15 +41,33 @@ class Usuario(Resource):
     def post(self):
         id = request.json["id"]
         return usaurioSchema.dump(Usuarios.query.get_or_404(id))
-        
+
+def calculate_distance(user1, user2):
+    gender_distance = 1 if user1['gender'] != user2['gender'] else 0
+    country_distance = 7 if user1['country'] != user2['country'] else 0
+    age_distance = abs(int(user1['age']) - int(user2['age']))
+    return gender_distance + country_distance + age_distance
+
 class Predict(Resource):
     def post(self):
-        df = pd.read_csv('modelos/predictions.csv')
-        result = df.loc[df['userid'] == request.json['id']]
+        df1 = pd.read_csv('modelos/predictions.csv')
+        result = df1.loc[df1['userid'] == request.json['id']]
         if(len(result) == 0):
-            usuario = Usuarios.query.filter_by(age=request.json['age']).first()
-            print(usuario)
+            df = pd.read_csv('modelos/userid-profile.tsv', sep='\t', skiprows = 1, on_bad_lines='skip',header = None,names = ["id","gender","age","country","registered"])
+            df['age'] = df['age'].fillna(0).astype(int)
+            min_distance = float('inf')
+            closest_user = None
+            id = request.json["id"]
+            usuario = usaurioSchema.dump(Usuarios.query.get_or_404(id))
+            for _, row in df.iterrows():
+                distance = calculate_distance(usuario, row)
+                if distance < min_distance:
+                    min_distance = distance
+                    closest_user = row
+                    closest_user =closest_user["id"]
+                    result = df1.loc[df1['userid'] == closest_user]
         return json.loads(result.to_json(orient='records'))
+
     
 class Calificar(Resource):
     def post(self):
